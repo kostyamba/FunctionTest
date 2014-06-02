@@ -1,19 +1,43 @@
-package sample;
+import static org.junit.Assert.*;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 
 public class OperationTests {
-    public static Addition prepare(){
-        return new Addition();
-    }
+	@Test
+	public void testAddition(){
+		Integer result = new Integer(4);
+		assertEquals(result,(Number)4); 
 
-    @Test
-    public void testAddition(){
-        Addition op = prepare();
+		assertEquals(result, new Integer(4)); //true
+	
+		assertEquals(new Integer(20), (new Addition()).apply(1,19)); //true
+	}
 
-        Assert.assertEquals();
-        Integer result = op.apply(2,2);
-    }
+	@Test
+	public void testSubtraction(){
+		Integer result = new Integer(46);
+
+		assertEquals(result, (new Subtraction()).apply(99,53)); //true
+	}
+
+	@Test
+	public void testMultiplication(){
+		Integer result = new Integer(12);
+
+		assertEquals(result, (new Multiplication()).apply(6,2)); //true
+	}
+
+	@Test
+	public void testStep(){
+		Integer result = new Integer(81);
+
+		assertEquals(result, (new Step()).apply(3,4)); //true
+	}
+
+	@Test
+	public void testAlwaysPassed(){
+		assertTrue(true);
+	}
 }
